@@ -5,7 +5,7 @@ namespace :api do
   desc "Delete all rankings"
   task :delete_all_rankings => :environment do
     puts "Proceeding to flush rankings and reset fetch dates."
-    PlayerRanking.delete_all
+    Ranking.delete_all
     Location.reset_fetch_dates
     puts "Task successful. Exiting."
   end

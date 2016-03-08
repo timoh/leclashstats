@@ -4,9 +4,12 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'puma'
 
+#gem 'rack-perftools_profiler', :require => 'rack/perftools_profiler'
+
 gem 'rest-client'
 
 gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
 gem 'rails-observers'
 
 gem 'materialize-sass'

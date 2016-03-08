@@ -8,6 +8,33 @@ class Location
   validates :api_id, :name, :last_fetched, presence: true
   has_many :rankings
 
+  def get_topten
+    topten = []
+    begin
+      latest_ranking = self.rankings.order_by(:created_at => 'desc').cache.first
+      #puts "Now done with latest US rankigns"
+      #puts latest_us_ranking
+      latest_ranking.content[0..9].each do |player|
+        #puts "\n\n Putting into array the player object: #{player.to_s}"
+        topten << player
+      end
+    rescue
+      print "Building top ten failed!"
+    end
+    return topten
+  end
+
+  def self.get_us_topten
+    begin
+      us_object = Location.find_by({name: "United States"})
+    rescue
+      puts "Fetching US topten failed!"
+      return []
+    else
+      return us_object.get_topten
+    end
+  end
+
   def self.construct_global_top_lists
     locs = Location.all.cache
 

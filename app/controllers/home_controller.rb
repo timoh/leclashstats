@@ -1,20 +1,10 @@
 class HomeController < ApplicationController
   caches_page :index, :country_json, :us_json, :global_json
+  #caches_action :index, :country_json, :us_json, :global_json
 
   def index
-    begin
-      us_object = Location.find_by({name: "United States"})
-      us_id = us_object.api_id
-    rescue
-      @us_players = {}
-    else
-      begin
-        @us_players = PlayerRanking.get_top(us_id, 10)
-      rescue
-        @us_players = {}
-      end
-    end
-    
+    @country_name = 'United States'
+    @us_topten = Location.get_us_topten
   end
 
   def country_json

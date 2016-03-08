@@ -21,7 +21,10 @@ module Clashstats
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    config.cache_store = :memory_store
     config.action_controller.page_cache_directory = "#{Rails.root.to_s}/public/page_cache/"
+
+    #config.middleware.use ::Rack::PerftoolsProfiler, :default_printer => 'gif', :bundler => true
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.

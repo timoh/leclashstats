@@ -1,0 +1,15 @@
+- cache do
+  h1.header.center.orange-text Locations
+  .row.center
+    .input-field.col.s6
+      input type="text" id="search" placeholder="Search country"
+
+  .row
+    table.striped.bordered
+      thead
+        tr
+          th Country
+      tbody
+        - @locations.each do |location|
+          tr.countryrow
+            td =link_to location.name, "/locations/#{location.api_id}"

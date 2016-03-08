@@ -1,7 +1,7 @@
 class Ranking
   include Mongoid::Document
   include Mongoid::Timestamps
-  field :content, type: Hash
+  field :content, type: Array
   belongs_to :location
 
   def self.fetch_rankings(token)

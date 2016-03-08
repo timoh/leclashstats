@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  get 'locations/index'
+
   root 'home#index'
   get '/us_json' => 'home#us_json'
   get '/global_json' => 'home#global_json'
   get '/country_json' => 'home#country_json'
-  
+
+  get '/locations' => 'locations#index'
+  get '/locations/:api_id' => 'locations#api_id'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,4 @@
-# workers 3 #Integer(ENV['WEB_CONCURRENCY'] || 8)
+workers 3 #Integer(ENV['WEB_CONCURRENCY'] || 8)
 #threads_count = Integer(ENV['MAX_THREADS'] || 32)
 threads 4,8 #threads_count, threads_count
 

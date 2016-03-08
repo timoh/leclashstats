@@ -1,5 +1,5 @@
 - cache do
-  h1.header.center.orange-text =@country_name
+  h1.header.center.orange-text =@location.name
   .row.center
     h5.header.col.s12.light
   .row
@@ -11,7 +11,7 @@
           th Level
           th Trophies
       tbody
-        - @us_topten.each do |player|
+        - @location.get_topten.each do |player|
           tr
             td =player['rank']
             td =player['name']
