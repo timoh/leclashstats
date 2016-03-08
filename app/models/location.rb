@@ -6,7 +6,7 @@ class Location
   field :last_fetched, type: DateTime, default: DateTime.new(1970,1,1)
 
   validates :api_id, :name, :last_fetched, presence: true
-  has_many :player_rankings
+  has_many :rankings
 
   def self.construct_global_top_lists
     locs = Location.all.cache

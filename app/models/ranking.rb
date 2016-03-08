@@ -1,33 +1,8 @@
-class PlayerRanking
+class Ranking
   include Mongoid::Document
   include Mongoid::Timestamps
-  field :location_id, type: Integer
-  field :name, type: String
-  field :expLevel, type: Integer
-  field :trophies, type: Integer
-  field :attackWins, type: Integer
-  field :defenseWins, type: Integer
-  field :rank, type: Integer
-  field :previousRank, type: Integer
-
+  field :content, type: Hash
   belongs_to :location
-  belongs_to :clan
-  belongs_to :league
-
-  validates_associated :location#, :clan, :league
-  validates :name, :expLevel, :trophies, :attackWins, :defenseWins, :rank, presence: true
-
-  def self.get_top(country_code, limit=10)
-    # USA: 32000249
-    top_list = {"country_code" => country_code,
-                "country_name" => Location.where(api_id: country_code).cache.first.name,
-                "rankings" => []
-              }
-    for rank_i in (1..limit).to_a # iterate over rankings starting from 1 to limit
-        top_list["rankings"] << PlayerRanking.where(location_id: country_code).where(rank: rank_i).order_by(:created_at => 'asc').cache.first
-    end
-    return top_list
-  end
 
   def self.fetch_rankings(token)
     require 'json'
@@ -91,4 +66,5 @@ class PlayerRanking
       end
     end
   end
+
 end
