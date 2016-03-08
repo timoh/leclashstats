@@ -13,18 +13,8 @@
 ## Setup
 
 1. Get Clash of Clans API keys from
-2. Fetch locations with rake task
-
-```sh
-rake api:fetch_location['token']
-```
-
-3. Fetch rankigns with rake task
-
-```sh
-rake api:fetch_rankings['token']
-```
-
+2. Fetch locations with rake task `rake api:fetch_location['token']`
+3. Fetch rankigns with rake task `rake api:fetch_rankings['token']`
 4. Start server with `rails s` command and navigate to `http://localhost:3000`
 
 ## Deployment
