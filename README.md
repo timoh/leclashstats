@@ -1,6 +1,8 @@
 # Le Clash Stats
 > Prototype showcase for some basic API operations, and web app creation stuff.
 
+![Alt text](/lcs-screenshot.jpg?raw=true "Screenshot")
+
 ## Major dependencies
 * Rails 4
 * MongoDB and Mongoid ORM
