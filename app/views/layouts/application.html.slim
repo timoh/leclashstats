@@ -1,0 +1,27 @@
+doctype html
+html lang="en"
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta content="width=device-width, initial-scale=1, maximum-scale=1.0" name="viewport" /
+    title ClashStats alpha v.0.1
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    /! CSS
+  body
+    nav.light-blue.lighten-1 role="navigation"
+      .nav-wrapper.container
+        a#logo-container.brand-logo href="/" ClashStats alpha v.0.1
+
+        /ul.right.hide-on-med-and-down
+        /  li
+        /    a href="#"  Navbar Link
+        /ul#nav-mobile.side-nav
+        /  li
+        /    a href="#"  Navbar Link
+        /a.button-collapse data-activates="nav-mobile" href="#"
+        /  i.material-icons menu
+
+    #index-banner.section.no-pad-bot
+      .container
+        = yield

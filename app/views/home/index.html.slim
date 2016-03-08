@@ -1,0 +1,19 @@
+- cache do
+  h1.header.center.orange-text =@us_players["country_name"]
+  .row.center
+    h5.header.col.s12.light
+  .row
+    table.striped.bordered
+      thead
+        tr
+          th Rank
+          th Player name
+          th Level
+          th Trophies
+      tbody
+        - @us_players["rankings"].each do |ranking|
+          tr
+            td =ranking.rank
+            td =ranking.name
+            td =ranking.expLevel
+            td =ranking.trophies

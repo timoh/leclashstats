@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  expLevel: 1
+  trophies: 1
+  attackWins: 1
+  defenseWins: 1
+  rank: 1
+  previousRank: 1
+
+two:
+  name: MyString
+  expLevel: 1
+  trophies: 1
+  attackWins: 1
+  defenseWins: 1
+  rank: 1
+  previousRank: 1
