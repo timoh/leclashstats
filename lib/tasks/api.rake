@@ -19,7 +19,7 @@ namespace :api do
   desc "Fetch the rankings from the API"
   task :fetch_ranks, [:token] => [:environment] do |t, args|
     raise "Not an integer" unless args.token.is_a? String
-    PlayerRanking.fetch_rankings(args.token)
+    Ranking.fetch_rankings(args.token)
   end
 
 end

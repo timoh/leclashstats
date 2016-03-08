@@ -28,21 +28,11 @@ class Ranking
           else
             ranking_items_array = JSON.parse(response.body)["items"]
             # puts "HTTP GET succeeded. Iterating over items in JSON response."
-            ranking_items_array.each do |ranking_item|
-              plr = PlayerRanking.new
-              plr.location = loc
-              plr.location_id = loc_id
-              plr.name = ranking_item["name"]
-              plr.expLevel = ranking_item["expLevel"]
-              plr.trophies = ranking_item["trophies"]
-              plr.attackWins = ranking_item["attackWins"]
-              plr.defenseWins = ranking_item["defenseWins"]
-              plr.rank = ranking_item["rank"]
-              plr.previousRank = ranking_item["previousRank"]
-              # TODO: Add clan and league information!
-              plr.save!
-              changed = true
-            end
+            rnk = Ranking.new
+            rnk.content = ranking_items_array
+            rnk.location = loc
+            rnk.save!
+            changed = true
           end
         rescue => e
           puts e
